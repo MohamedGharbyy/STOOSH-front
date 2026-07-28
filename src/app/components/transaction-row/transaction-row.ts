@@ -12,9 +12,14 @@ export class TransactionRow {
   @Input() item!: Transaction;
   @Output() edit = new EventEmitter<Transaction>();
   @Output() delete = new EventEmitter<Transaction>();
+  showActions = false;
 
   onRowClick(): void {
     this.edit.emit(this.item);
+  }
+
+  toggleActions(): void {
+    this.showActions = !this.showActions;
   }
 
   onEdit(event: Event): void {

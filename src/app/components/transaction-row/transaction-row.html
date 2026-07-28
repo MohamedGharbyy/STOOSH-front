@@ -18,12 +18,23 @@
     {{ item.type === 'income' ? '+' : '-' }}{{ item.amount | currency:'USD':'symbol':'1.0-2' }}
   </span>
   
-  <div class="stoosh-transaction-actions d-flex gap-2">
-    <button class="stoosh-btn-icon" (click)="onEdit($event)" title="Edit">
-      <i class="bi bi-pencil"></i>
-    </button>
-    <button class="stoosh-btn-icon stoosh-btn-icon-danger" (click)="onDelete($event)" title="Delete">
-      <i class="bi bi-trash"></i>
-    </button>
+  <div class="stoosh-transaction-actions">
+    @if (!showActions) {
+      <button class="stoosh-btn-icon stoosh-btn-dots" (click)="toggleActions()" title="Actions">
+        <i class="bi bi-three-dots-vertical"></i>
+      </button>
+    } @else {
+      <div class="stoosh-actions-visible d-flex gap-2 align-items-center">
+        <button class="stoosh-btn-icon" (click)="onEdit($event)" title="Edit">
+          <i class="bi bi-pencil"></i>
+        </button>
+        <button class="stoosh-btn-icon stoosh-btn-icon-danger" (click)="onDelete($event)" title="Delete">
+          <i class="bi bi-trash"></i>
+        </button>
+        <button class="stoosh-btn-icon stoosh-btn-close" (click)="toggleActions()" title="Close">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+    }
   </div>
 </div>

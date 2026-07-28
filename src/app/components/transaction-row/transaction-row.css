@@ -1,6 +1,6 @@
 /* TransactionRow component uses global styles from src/styles.css
    This file is for any component-specific overrides if needed */
-   
+    
 /* The following styles are already defined in src/styles.css:
    - .stoosh-transaction-row
    - .stoosh-transaction-icon
@@ -9,3 +9,44 @@
    - .stoosh-transaction-date
    - .stoosh-transaction-amount
 */
+
+.stoosh-transaction-actions {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.stoosh-btn-dots {
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+.stoosh-btn-dots:hover {
+  opacity: 1;
+}
+
+.stoosh-actions-visible {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.stoosh-btn-close {
+  opacity: 0.7;
+  transition: all 0.2s ease;
+}
+
+.stoosh-btn-close:hover {
+  opacity: 1;
+  background-color: rgba(240, 240, 239, 0.1);
+}
