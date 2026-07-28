@@ -64,7 +64,11 @@
             <span class="text-secondary small">{{ filteredTransactions().length }} transactions</span>
           </div>
           
-          <app-transaction-list [items]="filteredTransactions()" (editTransaction)="openEditModal($event)"></app-transaction-list>
+          <app-transaction-list 
+            [items]="filteredTransactions()" 
+            (editTransaction)="openEditModal($event)"
+            (deleteTransaction)="deleteTransaction($event.id)">
+          </app-transaction-list>
           
           @if (filteredTransactions().length === 0) {
             <div class="text-center py-5">

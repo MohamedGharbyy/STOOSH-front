@@ -44,6 +44,11 @@ export class Dashboard {
   constructor(private router: Router, private transactionService: TransactionService) {
     this.transactions = [...this.transactionService.getAllTransactions()];
   }
+
+  deleteTransaction(id: number): void {
+    this.transactionService.deleteTransaction(id);
+    this.transactions = this.transactionService.getAllTransactions();
+  }
   
   onSidebarToggle(): void {
     this.sidebarCollapsed = !this.sidebarCollapsed;

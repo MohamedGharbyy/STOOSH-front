@@ -648,6 +648,38 @@ html, body {
   color: var(--stoosh-danger);
 }
 
+.stoosh-transaction-actions {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.stoosh-btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  border-radius: var(--stoosh-radius-sm);
+  background-color: transparent;
+  color: var(--stoosh-text-secondary);
+  cursor: pointer;
+  transition: all 0.2s var(--stoosh-ease-snappy);
+  font-size: 0.95rem;
+}
+
+.stoosh-btn-icon:hover {
+  background-color: var(--stoosh-hover-overlay);
+  color: var(--stoosh-text-primary);
+}
+
+.stoosh-btn-icon-danger:hover {
+  background-color: rgba(191, 67, 66, 0.15);
+  color: var(--stoosh-danger);
+}
+
 /* --- Input & Colors Helpers --- */
 .stoosh-input {
   background-color: var(--stoosh-bg-tertiary);

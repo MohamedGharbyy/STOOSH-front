@@ -26,7 +26,10 @@
         
         <div class="stoosh-card p-4">
           <h3 class="stoosh-card-title mb-3">Recent Transactions</h3>
-          <app-transaction-list [items]="transactions"></app-transaction-list>
+          <app-transaction-list 
+            [items]="transactions" 
+            (deleteTransaction)="deleteTransaction($event.id)">
+          </app-transaction-list>
         </div>
         
       </div>

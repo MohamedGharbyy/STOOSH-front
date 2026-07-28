@@ -1,7 +1,11 @@
 <div class="transaction-container overflow-y-auto" style="max-height: 24rem;">
   
   @for (item of items; track item.id) {
-    <app-transaction-row [item]="item" (edit)="editTransaction.emit($event)"></app-transaction-row>
+    <app-transaction-row 
+      [item]="item" 
+      (edit)="editTransaction.emit($event)"
+      (delete)="deleteTransaction.emit($event)">
+    </app-transaction-row>
   } @empty {
     <div class="text-center py-5">
       <i class="bi bi-bezier2 fs-2 d-block mb-2 text-secondary"></i>

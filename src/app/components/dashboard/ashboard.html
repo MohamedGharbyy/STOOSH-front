@@ -106,7 +106,7 @@
         <!-- Transaction List -->
         <div class="stoosh-card p-3">
           <h3 class="text-white mb-3" style="font-size: 1.125rem; font-weight: 600;">Recent Transactions</h3>
-          <app-transaction-list [items]="transactions"></app-transaction-list>
+          <app-transaction-list [items]="transactions" (deleteTransaction)="deleteTransaction($event.id)"></app-transaction-list>
         </div>
         
       </div>
