@@ -1,5 +1,9 @@
-<div class="stoosh-transaction-row" (click)="onRowClick()">
-  <div class="d-flex align-items-center gap-3">
+<div class="stoosh-transaction-row">
+  <span class="stoosh-transaction-amount me-3" [class.income]="item.type === 'income'" [class.expense]="item.type === 'expense'">
+    {{ item.type === 'income' ? '+' : '-' }}{{ item.amount | currency:'USD':'symbol':'1.0-2' }}
+  </span>
+  
+  <div class="d-flex align-items-center gap-3 flex-grow-1">
     <div class="stoosh-transaction-icon" [class.income]="item.type === 'income'" [class.expense]="item.type === 'expense'">
       @if (item.type === 'income') {
         <i class="bi bi-arrow-up-circle-fill"></i>
@@ -14,7 +18,12 @@
     </div>
   </div>
   
-  <span class="stoosh-transaction-amount" [class.income]="item.type === 'income'" [class.expense]="item.type === 'expense'">
-    {{ item.type === 'income' ? '+' : '-' }}{{ item.amount | currency:'USD':'symbol':'1.0-2' }}
-  </span>
+  <div class="stoosh-transaction-actions d-flex gap-2">
+    <button class="stoosh-btn-icon" (click)="onEdit($event)" title="Edit">
+      <i class="bi bi-pencil"></i>
+    </button>
+    <button class="stoosh-btn-icon stoosh-btn-icon-danger" (click)="onDelete($event)" title="Delete">
+      <i class="bi bi-trash"></i>
+    </button>
+  </div>
 </div>

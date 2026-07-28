@@ -1,5 +1,5 @@
 .transaction-container::-webkit-scrollbar {
-  width: 4px;
+  width: 8px;
 }
 
 .transaction-container::-webkit-scrollbar-track {
@@ -8,7 +8,7 @@
 
 .transaction-container::-webkit-scrollbar-thumb {
   background-color: rgba(240, 240, 239, 0.12);
-  border-radius: 10px;
+  border-radius: 4px;
 }
 
 .transaction-container::-webkit-scrollbar-thumb:hover {
@@ -16,5 +16,5 @@
 }
 
 .transaction-container {
-  padding: 4px 0 !important;
+  padding: 4px 12px 4px 0 !important;
 }

@@ -7,7 +7,7 @@ import { Transaction } from './transaction.model';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Auth, Dashboard, Transactions],
+  imports: [RouterOutlet, Auth],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

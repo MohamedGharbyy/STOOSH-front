@@ -12,4 +12,5 @@ import { TransactionRow } from '../transaction-row/transaction-row';
 export class TransactionList {
   @Input() items: Transaction[] = [];
   @Output() editTransaction = new EventEmitter<Transaction>();
+  @Output() deleteTransaction = new EventEmitter<Transaction>();
 }

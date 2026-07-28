@@ -11,8 +11,19 @@ import { Transaction } from '../../transaction.model';
 export class TransactionRow {
   @Input() item!: Transaction;
   @Output() edit = new EventEmitter<Transaction>();
+  @Output() delete = new EventEmitter<Transaction>();
 
   onRowClick(): void {
     this.edit.emit(this.item);
+  }
+
+  onEdit(event: Event): void {
+    event.stopPropagation();
+    this.edit.emit(this.item);
+  }
+
+  onDelete(event: Event): void {
+    event.stopPropagation();
+    this.delete.emit(this.item);
   }
 }
