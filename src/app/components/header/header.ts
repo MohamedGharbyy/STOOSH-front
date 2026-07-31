@@ -20,6 +20,12 @@ export class Header {
 
   @Output() actionClick = new EventEmitter<string>();
 
+  profileMenuOpen = false;
+
+  toggleProfileMenu(): void {
+    this.profileMenuOpen = !this.profileMenuOpen;
+  }
+
   onActionClick(action: string): void {
     this.actionClick.emit(action);
   }

@@ -1,6 +1,6 @@
 /* Header component uses global styles from src/styles.css
    This file is for any component-specific overrides if needed */
-   
+    
 /* The following styles are already defined in src/styles.css:
    - .stoosh-header
    - .stoosh-header-title
@@ -10,3 +10,141 @@
    - .stoosh-btn-secondary
    - .action-btn
 */
+
+/* --- Profile Menu Styles --- */
+.stoosh-profile-menu {
+  position: relative;
+  z-index: 9999;
+}
+
+.stoosh-profile-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background-color: transparent;
+  border: 1px solid var(--stoosh-border-subtle);
+  border-radius: var(--stoosh-radius-md);
+  color: var(--stoosh-text-secondary);
+  cursor: pointer;
+  transition: all 0.2s var(--stoosh-ease-snappy);
+  font-family: var(--stoosh-font-display);
+}
+
+.stoosh-profile-trigger:hover {
+  background-color: var(--stoosh-hover-overlay);
+  color: var(--stoosh-text-primary);
+  border-color: var(--stoosh-border-default);
+}
+
+.stoosh-profile-avatar {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--stoosh-accent-burnt-orange) 0%, var(--stoosh-accent-orange-hover) 100%);
+  border-radius: var(--stoosh-radius-sm);
+  color: var(--stoosh-text-primary);
+  font-size: 1rem;
+}
+
+.stoosh-profile-trigger i {
+  font-size: 0.85rem;
+}
+
+.stoosh-profile-dropdown-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99998;
+  background: transparent;
+}
+
+.stoosh-profile-dropdown {
+  position: fixed;
+  top: 68px;
+  right: 20px;
+  min-width: 240px;
+  background-color: var(--stoosh-surface-elevated);
+  border: 1px solid var(--stoosh-border-default);
+  border-radius: var(--stoosh-radius-lg);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  z-index: 99999;
+  overflow: hidden;
+  animation: stoosh-dropdown-appear 0.2s var(--stoosh-ease-snappy);
+}
+
+@keyframes stoosh-dropdown-appear {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stoosh-profile-info {
+  padding: 16px;
+  background-color: rgba(26, 26, 26, 0.5);
+}
+
+.stoosh-profile-name {
+  font-family: var(--stoosh-font-display);
+  font-weight: var(--stoosh-weight-semibold);
+  font-size: var(--stoosh-text-sm);
+  color: var(--stoosh-text-primary);
+  margin-bottom: 4px;
+}
+
+.stoosh-profile-email {
+  font-size: var(--stoosh-text-xs);
+  color: var(--stoosh-text-tertiary);
+}
+
+.stoosh-profile-divider {
+  height: 1px;
+  background-color: var(--stoosh-border-subtle);
+  margin: 4px 0;
+}
+
+.stoosh-profile-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 10px 16px;
+  background-color: transparent;
+  border: none;
+  color: var(--stoosh-text-secondary);
+  font-family: var(--stoosh-font-display);
+  font-size: var(--stoosh-text-sm);
+  font-weight: var(--stoosh-weight-medium);
+  cursor: pointer;
+  transition: all 0.2s var(--stoosh-ease-snappy);
+  text-align: left;
+}
+
+.stoosh-profile-item:hover {
+  background-color: var(--stoosh-hover-overlay);
+  color: var(--stoosh-text-primary);
+}
+
+.stoosh-profile-item i {
+  font-size: 1rem;
+  width: 20px;
+  text-align: center;
+}
+
+.stoosh-profile-item--danger {
+  color: var(--stoosh-danger);
+}
+
+.stoosh-profile-item--danger:hover {
+  background-color: rgba(191, 67, 66, 0.1);
+  color: var(--stoosh-danger);
+}

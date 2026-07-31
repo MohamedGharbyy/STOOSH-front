@@ -35,7 +35,6 @@ export class Dashboard {
   // Header actions
   headerActions: HeaderAction[] = [
     { label: 'Export', icon: 'bi-download', variant: 'secondary', action: 'export' },
-    { label: 'Add', icon: 'bi-plus-lg', variant: 'primary', action: 'add' },
   ];
   
   @Output() sidebarToggle = new EventEmitter<void>();
