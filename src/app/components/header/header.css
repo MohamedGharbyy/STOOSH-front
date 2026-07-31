@@ -61,6 +61,14 @@
   bottom: 0;
   z-index: 99998;
   background: transparent;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s var(--stoosh-ease-snappy), visibility 0.2s var(--stoosh-ease-snappy);
+}
+
+.stoosh-profile-dropdown-backdrop.active {
+  opacity: 1;
+  visibility: visible;
 }
 
 .stoosh-profile-dropdown {
@@ -74,18 +82,18 @@
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   z-index: 99999;
   overflow: hidden;
-  animation: stoosh-dropdown-appear 0.2s var(--stoosh-ease-snappy);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity 0.2s var(--stoosh-ease-snappy), 
+              transform 0.2s var(--stoosh-ease-snappy),
+              visibility 0.2s var(--stoosh-ease-snappy);
 }
 
-@keyframes stoosh-dropdown-appear {
-  from {
-    opacity: 0;
-    transform: translateY(-8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.stoosh-profile-dropdown.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 .stoosh-profile-info {
