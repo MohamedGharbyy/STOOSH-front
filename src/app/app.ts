@@ -1,9 +1,9 @@
 import { Component, signal, computed } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Auth } from './components/auth/auth';
-import { Dashboard } from './components/dashboard/dashboard';
-import { Transactions } from './components/transactions/transactions';
-import { Transaction } from './transaction.model';
+import { Auth } from './views/auth/auth';
+import { Dashboard } from './views/dashboard/dashboard';
+import { Transactions } from './views/transactions/transactions';
+import { Transaction } from './models/transaction.model';
 
 @Component({
   selector: 'app-root',

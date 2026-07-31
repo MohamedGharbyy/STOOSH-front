@@ -1,11 +1,11 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { TransactionList } from '../transaction-list/transaction-list';
-import { Transaction } from '../../transaction.model';
-import { Sidebar, NavItem } from '../sidebar/sidebar';
-import { Header, HeaderAction } from '../header/header';
-import { StatCard } from '../stat-card/stat-card';
+import { TransactionList } from '../../components/transaction-list/transaction-list';
+import { Transaction } from '../../models/transaction.model';
+import { Sidebar, NavItem } from '../../components/sidebar/sidebar';
+import { Header, HeaderAction } from '../../components/header/header';
+import { StatCard } from '../../components/stat-card/stat-card';
 import { TransactionService } from '../../transaction.service';
 
 @Component({

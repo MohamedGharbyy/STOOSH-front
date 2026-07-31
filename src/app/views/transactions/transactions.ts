@@ -2,10 +2,10 @@ import { Component, Input, Output, EventEmitter, signal, computed } from '@angul
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { TransactionList } from '../transaction-list/transaction-list';
-import { Sidebar, NavItem } from '../sidebar/sidebar';
-import { Header, HeaderAction } from '../header/header';
-import { Transaction } from '../../transaction.model';
+import { TransactionList } from '../../components/transaction-list/transaction-list';
+import { Sidebar, NavItem } from '../../components/sidebar/sidebar';
+import { Header, HeaderAction } from '../../components/header/header';
+import { Transaction } from '../../models/transaction.model';
 import { TransactionService } from '../../transaction.service';
 
 export type FilterType = 'all' | 'today' | 'lastWeek' | 'month';

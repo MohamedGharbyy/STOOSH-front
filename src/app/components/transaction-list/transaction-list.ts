@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Transaction } from '../../transaction.model';
+import { Transaction } from '../../models/transaction.model';
 import { TransactionRow } from '../transaction-row/transaction-row';
 
 @Component({
