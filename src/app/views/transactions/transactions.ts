@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, signal, computed } from '@angular/core';
+import { Component, Output, EventEmitter, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -6,7 +6,7 @@ import { TransactionList } from '../../components/transaction-list/transaction-l
 import { Sidebar, NavItem } from '../../components/sidebar/sidebar';
 import { Header, HeaderAction } from '../../components/header/header';
 import { Transaction } from '../../models/transaction.model';
-import { TransactionService } from '../../transaction.service';
+import { TransactionService } from '../../services/transaction.service';
 
 export type FilterType = 'all' | 'today' | 'lastWeek' | 'month';
 
@@ -71,14 +71,14 @@ export class Transactions {
           return txDate >= today;
         });
         break;
-      case 'lastWeek':
+      case 'lastWeek': {
         const lastWeek = new Date(today);
         lastWeek.setDate(lastWeek.getDate() - 7);
         result = result.filter(t => {
           const txDate = new Date(t.date);
           return txDate >= lastWeek && txDate <= now;
         });
-        break;
+        break;}
       case 'month':
         result = result.filter(t => {
           const txDate = new Date(t.date);
@@ -91,7 +91,7 @@ export class Transactions {
     return result.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
   });
 
-  constructor(private router: Router, private transactionService: TransactionService) {
+  constructor(private readonly router: Router, private readonly transactionService: TransactionService) {
     this.transactions = this.transactionService.getAllTransactions();
   }
 
@@ -127,6 +127,13 @@ export class Transactions {
 
   closeAddModal(): void {
     this.showAddModal = false;
+  }
+
+  onModalKeyDown(event: KeyboardEvent): void {
+    if (event.key === 'Escape') {
+      this.closeAddModal();
+      this.closeEditModal();
+    }
   }
 
   openEditModal(transaction: Transaction): void {

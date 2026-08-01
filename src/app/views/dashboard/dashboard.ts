@@ -6,7 +6,7 @@ import { Transaction } from '../../models/transaction.model';
 import { Sidebar, NavItem } from '../../components/sidebar/sidebar';
 import { Header, HeaderAction } from '../../components/header/header';
 import { StatCard } from '../../components/stat-card/stat-card';
-import { TransactionService } from '../../transaction.service';
+import { TransactionService } from '../../services/transaction.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -40,7 +40,7 @@ export class Dashboard {
   @Output() sidebarToggle = new EventEmitter<void>();
   @Output() headerAction = new EventEmitter<string>();
   
-  constructor(private router: Router, private transactionService: TransactionService) {
+  constructor(private readonly router: Router, private readonly transactionService: TransactionService) {
     this.transactions = [...this.transactionService.getAllTransactions()];
   }
 

@@ -1,11 +1,11 @@
-import { Injectable, signal, computed } from '@angular/core';
-import { Transaction } from './models/transaction.model';
+import { Injectable, signal } from '@angular/core';
+import { Transaction } from '../models/transaction.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TransactionService {
-  private transactions = signal<Transaction[]>([
+  private readonly transactions = signal<Transaction[]>([
     {
       id: 1,
       name: 'Salary',

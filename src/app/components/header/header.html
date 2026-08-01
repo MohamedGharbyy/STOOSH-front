@@ -12,25 +12,29 @@
     }
     
     <!-- Profile Menu -->
-    <div class="stoosh-profile-menu" [class.active]="profileMenuOpen" (click)="toggleProfileMenu()">
-      <button class="stoosh-profile-trigger">
-        <div class="stoosh-profile-avatar">
-          <i class="bi bi-person-fill"></i>
-        </div>
-        <i class="bi bi-chevron-down" *ngIf="!profileMenuOpen"></i>
-        <i class="bi bi-chevron-up" *ngIf="profileMenuOpen"></i>
-      </button>
-    </div>
+    <button class="stoosh-profile-menu" 
+         [class.active]="profileMenuOpen" 
+         (click)="toggleProfileMenu()"
+         [attr.aria-expanded]="profileMenuOpen"
+         aria-label="Profile menu">
+      <div class="stoosh-profile-avatar">
+        <i class="bi bi-person-fill"></i>
+      </div>
+      <i class="bi bi-chevron-down" *ngIf="!profileMenuOpen"></i>
+      <i class="bi bi-chevron-up" *ngIf="profileMenuOpen"></i>
+    </button>
   </div>
 </header>
 
 <!-- Profile Dropdown (rendered outside header to avoid overflow issues) -->
-<div class="stoosh-profile-dropdown-backdrop" 
-     [class.active]="profileMenuOpen" 
-     (click)="toggleProfileMenu()">
+<button class="stoosh-profile-dropdown-backdrop" 
+        [class.active]="profileMenuOpen" 
+        (click)="toggleProfileMenu()"
+        aria-label="Close profile menu">
   <div class="stoosh-profile-dropdown" 
        [class.active]="profileMenuOpen"
-       (click)="$event.stopPropagation()">
+       (click)="$event.stopPropagation()"
+       (keydown.escape)="toggleProfileMenu()">
     <div class="stoosh-profile-info">
       <div class="stoosh-profile-name">John Doe</div>
       <div class="stoosh-profile-email">john.doe@example.com</div>
@@ -50,4 +54,4 @@
       <span>Logout</span>
     </button>
   </div>
-</div>
+</button>

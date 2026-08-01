@@ -1,11 +1,11 @@
 .tracking-identity {
-  letter-spacing: -0.02em !important;
+  letter-spacing: -0.01em;
 }
 
 .brand-identity {
   font-family: var(--stoosh-font-brand) !important;
   font-weight: var(--stoosh-weight-extrabold) !important;
-  letter-spacing: -0.02em !important;
+  letter-spacing: -0.01em;
   color: var(--stoosh-accent-burnt-orange) !important;
   user-select: none;
 }
