@@ -2,6 +2,13 @@
    Ensures inputs and buttons render at identical, consistent sizes
    across log-in, sign-up, and forgot-password. */
 
+/* Make the component host element full width so all forms
+   render at the same width regardless of content length. */
+:host {
+  display: block;
+  width: 100%;
+}
+
 input.form-control.stoosh-input {
   height: 48px;
   padding: 13px 16px;
