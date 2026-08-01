@@ -20,15 +20,6 @@
       
     </div>
   } @else {
-    @if (isLoggedIn()) {
-      <router-outlet></router-outlet>
-    } @else {
-      <div class="login-page">
-        <div class="login-overlay"></div>
-        <div class="login-content">
-          <app-auth (loginSuccess)="onLoginSuccess()"></app-auth>
-        </div>
-      </div>
-    }
+    <router-outlet></router-outlet>
   }
 </div>

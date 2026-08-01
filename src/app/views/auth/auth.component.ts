@@ -1,23 +1,9 @@
-import { Component, Output, EventEmitter } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-auth',
-  imports: [CommonModule],
+  imports: [RouterOutlet],
   templateUrl: './auth.component.html',
 })
-export class Auth {
-  authMode: 'login' | 'signup' | 'forgot' = 'login';
-
-  @Output() loginSuccess = new EventEmitter<void>();
-
-  handleAuthSubmit() {
-    if (this.authMode === 'login') {
-      this.loginSuccess.emit();
-    }
-  }
-
-  switchAuthMode(mode: 'login' | 'signup' | 'forgot') {
-    this.authMode = mode;
-  }
-}
+export class Auth {}

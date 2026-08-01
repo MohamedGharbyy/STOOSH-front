@@ -1,12 +1,12 @@
-import { Component, signal, computed } from '@angular/core';
+import { Component, signal, computed, inject } from '@angular/core';
 import { RouterOutlet, Router } from '@angular/router';
-import { Auth } from './views/auth/auth.component';
 import { Transaction } from './models/transaction.model';
 import { TransactionService } from './services/transaction.service';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Auth],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -48,24 +48,15 @@ export class App {
     date: new Date('2026-07-15')
   }];
 
-  isLoggedIn = signal(false);
-  isLoading = signal(false);
+  private readonly router = inject(Router);
+  private readonly transactionService = inject(TransactionService);
+  private readonly authService = inject(AuthService);
+
+  protected readonly isLoggedIn = this.authService.isLoggedIn;
+  protected readonly isLoading = this.authService.isLoading;
 
   /** Show video background only when NOT loading AND NOT logged in (i.e., login page is active). */
-  protected showVideoBg = computed(() => !this.isLoading() && !this.isLoggedIn());
-
-  constructor(
-    private readonly router: Router,
-    private readonly transactionService: TransactionService
-  ) {}
-
-  onLoginSuccess() {
-    this.isLoading.set(true);
-    setTimeout(() => {
-      this.isLoggedIn.set(true);
-      this.isLoading.set(false);
-    }, 1000);
-  }
+  protected readonly showVideoBg = computed(() => !this.authService.isLoading() && !this.authService.isLoggedIn());
 
   onSidebarToggle() {
     // Handle sidebar toggle from dashboard

@@ -1,81 +1,16 @@
-<div class="glass-card p-4 p-sm-5 w-100 d-flex flex-column align-items-center">
-  
-  <div class="d-flex flex-column align-items-center text-white mb-4">
-    <i class="bi bi-wallet2 text-burnt-orange mb-2" style="font-size: 2.5rem;"></i>
-    <h1 class="text-center text-white m-0 brand-identity tracking-identity">STOO$H</h1>
-    <p class="text-secondary small text-center mt-1">Personal Wealth Tracker</p>
+<div class="login-page">
+  <div class="login-overlay"></div>
+  <div class="login-content">
+    <div class="glass-card p-4 p-sm-5 w-100 d-flex flex-column align-items-center">
+
+      <div class="d-flex flex-column align-items-center text-white mb-4">
+        <i class="bi bi-wallet2 text-burnt-orange mb-2" style="font-size: 2.5rem;"></i>
+        <h1 class="text-center text-white m-0 brand-identity tracking-identity">STOO$H</h1>
+        <p class="text-secondary small text-center mt-1">Personal Wealth Tracker</p>
+      </div>
+
+      <router-outlet></router-outlet>
+
+    </div>
   </div>
-  
-  <h4 class="text-white mb-4 fw-medium tracking-identity w-100 text-start">
-    @if (authMode === 'login') { Sign In }
-    @else if (authMode === 'signup') { Create Account }
-    @else { Reset Password }
-  </h4>
-  
-  <form (submit)="$event.preventDefault(); handleAuthSubmit()" class="w-100 d-flex flex-column gap-3">
-    
-    @if (authMode === 'forgot') {
-      <p class="text-secondary small mb-2">
-        Enter the email address associated with your account and we'll send you instructions to safely reset your credentials.
-      </p>
-      
-      <div class="form-group">
-        <label for="email-forgot" class="text-secondary small mb-1">Email Address</label>
-        <input type="email" id="email-forgot" name="email" class="form-control stoosh-input" placeholder="name@example.com" required>
-      </div>
-      
-      <button type="submit" class="stoosh-btn stoosh-btn-primary action-btn w-100 mt-3 py-2_5">
-        Send Recovery Email
-      </button>
-      
-      <div class="text-center mt-3">
-        <a style="cursor: pointer;" (click)="switchAuthMode('login')" class="text-secondary small link-hover text-decoration-none">
-          <i class="bi bi-arrow-left me-1"></i> Back to Sign In
-        </a>
-      </div>
-      
-    } @else {
-      @if (authMode === 'signup') {
-        <div class="form-group">
-          <label for="fullname" class="text-secondary small mb-1">Full Name</label>
-          <input type="text" id="fullname" name="fullname" class="form-control stoosh-input" placeholder="John Doe" required>
-        </div>
-      }
-      
-      <div class="form-group">
-        <label for="email" class="text-secondary small mb-1">Email Address</label>
-        <input type="email" id="email" name="email" class="form-control stoosh-input" placeholder="name@example.com" required>
-      </div>
-      
-      <div class="form-group">
-        <label for="password" class="text-secondary small mb-1">Password</label>
-        <input type="password" id="password" name="password" class="form-control stoosh-input" placeholder="••••••••" required>
-      </div>
-      
-      <button type="submit" class="stoosh-btn stoosh-btn-primary action-btn w-100 mt-3 py-2_5">
-        {{ authMode === 'login' ? 'Log In' : 'Register' }}
-      </button>
-      
-      <div class="text-center mt-3">
-        @if (authMode === 'login') {
-          <p class="text-secondary small m-0">
-            Don't have an account? 
-            <a style="cursor: pointer;" (click)="switchAuthMode('signup')" class="text-white fw-semibold link-hover ms-1 text-decoration-none">Sign Up</a>
-          </p>
-          <div class="mt-2">
-            <a style="cursor: pointer;" (click)="switchAuthMode('forgot')" class="text-secondary extreme-small link-hover text-decoration-none fw-medium">
-              Forgot Password?
-            </a>
-          </div>
-        } @else {
-          <p class="text-secondary small m-0">
-            Already have an account? 
-            <a style="cursor: pointer;" (click)="switchAuthMode('login')" class="text-white fw-semibold link-hover ms-1 text-decoration-none">Sign In</a>
-          </p>
-        }
-      </div>
-    }
-    
-  </form>
-  
 </div>

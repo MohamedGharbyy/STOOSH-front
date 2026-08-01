@@ -1,0 +1,29 @@
+<h4 class="text-white mb-4 fw-medium tracking-identity w-100 text-start">Sign In</h4>
+
+<form (submit)="$event.preventDefault(); handleAuthSubmit()" class="w-100 d-flex flex-column gap-3">
+  <div class="form-group">
+    <label for="email" class="text-secondary small mb-1">Email Address</label>
+    <input type="email" id="email" name="email" class="form-control stoosh-input" placeholder="name@example.com" required>
+  </div>
+
+  <div class="form-group">
+    <label for="password" class="text-secondary small mb-1">Password</label>
+    <input type="password" id="password" name="password" class="form-control stoosh-input" placeholder="••••••••" required>
+  </div>
+
+  <button type="submit" class="stoosh-btn stoosh-btn-primary action-btn w-100 mt-3 py-2_5">
+    Log In
+  </button>
+
+  <div class="text-center mt-3">
+    <p class="text-secondary small m-0">
+      Don't have an account?
+      <a routerLink="/auth/sign-up" class="text-white fw-semibold link-hover ms-1 text-decoration-none">Sign Up</a>
+    </p>
+    <div class="mt-2">
+      <a routerLink="/auth/forgot-password" class="text-secondary extreme-small link-hover text-decoration-none fw-medium">
+        Forgot Password?
+      </a>
+    </div>
+  </div>
+</form>
