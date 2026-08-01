@@ -24,9 +24,6 @@
   --stoosh-glow-orange: 0 0 20px rgba(191, 67, 66, 0.15);
   --stoosh-glow-green: 0 0 20px rgba(46, 204, 113, 0.12);
   --stoosh-glow-white: 0 0 20px rgba(240, 240, 239, 0.06);
-}
-
-:root {
   --stoosh-font-brand: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --stoosh-font-display: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --stoosh-font-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Monaco', monospace;
@@ -42,9 +39,6 @@
   --stoosh-text-xl: 1.25rem;
   --stoosh-text-2xl: 1.5rem;
   --stoosh-text-3xl: 1.875rem;
-}
-
-:root {
   --stoosh-sidebar-width: 260px;
   --stoosh-sidebar-width-collapsed: 72px;
   --stoosh-header-height: 68px;
@@ -825,13 +819,13 @@ button {
 .brand-identity {
   font-family: var(--stoosh-font-brand) !important;
   font-weight: var(--stoosh-weight-extrabold) !important;
-  letter-spacing: -0.02em !important;
+  letter-spacing: -0.01em;
   color: var(--stoosh-accent-burnt-orange) !important;
   user-select: none;
 }
 
 .tracking-identity {
-  letter-spacing: -0.02em !important;
+  letter-spacing: -0.01em;
 }
 
 /* Utility overrides */
