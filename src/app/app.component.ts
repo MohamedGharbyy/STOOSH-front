@@ -1,15 +1,14 @@
 import { Component, signal, computed } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { Auth } from './views/auth/auth';
-import { Dashboard } from './views/dashboard/dashboard';
-import { Transactions } from './views/transactions/transactions';
+import { RouterOutlet, Router } from '@angular/router';
+import { Auth } from './views/auth/auth.component';
 import { Transaction } from './models/transaction.model';
+import { TransactionService } from './services/transaction.service';
 
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, Auth],
-  templateUrl: './app.html',
-  styleUrl: './app.css'
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css'
 })
 export class App {
   protected readonly title = signal('STOO$H');
@@ -55,6 +54,11 @@ export class App {
   /** Show video background only when NOT loading AND NOT logged in (i.e., login page is active). */
   protected showVideoBg = computed(() => !this.isLoading() && !this.isLoggedIn());
 
+  constructor(
+    private readonly router: Router,
+    private readonly transactionService: TransactionService
+  ) {}
+
   onLoginSuccess() {
     this.isLoading.set(true);
     setTimeout(() => {
@@ -70,11 +74,32 @@ export class App {
 
   onHeaderAction(action: string) {
     // Handle header actions from dashboard
-    console.log('Header action:', action);
     if (action === 'add') {
-      // Add transaction logic
+      this.router.navigate(['/transactions']);
     } else if (action === 'export') {
-      // Export logic
+      this.exportTransactions();
     }
+  }
+
+  private exportTransactions(): void {
+    const transactions = this.transactionService.getAllTransactions();
+    const csv = [
+      ['ID', 'Name', 'Amount', 'Type', 'Date'],
+      ...transactions.map(t => [
+        t.id,
+        `"${t.name.replaceAll('"', '""')}"`,
+        t.amount,
+        t.type,
+        t.date.toISOString().split('T')[0]
+      ])
+    ].map(row => row.join(',')).join('\n');
+
+    const blob = new Blob(['\ufeff' + csv], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+    link.href = url;
+    link.download = `stoosh-transactions-${new Date().toISOString().split('T')[0]}.csv`;
+    link.click();
+    URL.revokeObjectURL(url);
   }
 }

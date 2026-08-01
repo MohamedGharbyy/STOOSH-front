@@ -1,40 +1,67 @@
 /* Header component uses global styles from src/styles.css
    This file is for any component-specific overrides if needed */
-    
-/* The following styles are already defined in src/styles.css:
-   - .stoosh-header
-   - .stoosh-header-title
-   - .stoosh-header-actions
-   - .stoosh-btn
-   - .stoosh-btn-primary
-   - .stoosh-btn-secondary
-   - .action-btn
-*/
+
+/* --- Header Action Buttons --- */
+.stoosh-header-actions .stoosh-btn {
+  flex-shrink: 0;
+  height: 40px;
+}
+
+.stoosh-header-actions .stoosh-btn:hover {
+  transform: translateY(-1px);
+}
+
+.stoosh-header-actions .stoosh-btn:active {
+  transform: translateY(0);
+}
+
+.stoosh-header-actions .stoosh-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--stoosh-focus-ring);
+}
 
 /* --- Profile Menu Styles --- */
 .stoosh-profile-menu {
   position: relative;
   z-index: 9999;
-}
-
-.stoosh-profile-trigger {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 12px;
-  background-color: transparent;
-  border: 1px solid var(--stoosh-border-subtle);
+  justify-content: center;
+  gap: 6px;
+  height: 40px;
+  padding: 0 10px 0 4px;
+  background-color: rgba(240, 240, 239, 0.04);
+  border: 1px solid var(--stoosh-border-default);
   border-radius: var(--stoosh-radius-md);
   color: var(--stoosh-text-secondary);
   cursor: pointer;
   transition: all 0.2s var(--stoosh-ease-snappy);
   font-family: var(--stoosh-font-display);
+  flex-shrink: 0;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
-.stoosh-profile-trigger:hover {
-  background-color: var(--stoosh-hover-overlay);
+.stoosh-profile-menu:hover {
+  background-color: rgba(240, 240, 239, 0.08);
+  border-color: var(--stoosh-border-strong);
   color: var(--stoosh-text-primary);
-  border-color: var(--stoosh-border-default);
+}
+
+.stoosh-profile-menu:active {
+  background-color: var(--stoosh-hover-overlay);
+  transform: scale(0.98);
+}
+
+.stoosh-profile-menu:focus-visible {
+  outline: none;
+  border-color: var(--stoosh-accent-burnt-orange);
+  box-shadow: 0 0 0 3px var(--stoosh-focus-ring);
+}
+
+.stoosh-profile-menu.active {
+  background-color: var(--stoosh-hover-overlay);
+  border-color: var(--stoosh-border-strong);
 }
 
 .stoosh-profile-avatar {
@@ -47,10 +74,16 @@
   border-radius: var(--stoosh-radius-sm);
   color: var(--stoosh-text-primary);
   font-size: 1rem;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(191, 67, 66, 0.3);
 }
 
-.stoosh-profile-trigger i {
+.stoosh-profile-menu i {
   font-size: 0.85rem;
+}
+
+.stoosh-profile-menu:hover i {
+  color: var(--stoosh-text-primary);
 }
 
 .stoosh-profile-dropdown-backdrop {

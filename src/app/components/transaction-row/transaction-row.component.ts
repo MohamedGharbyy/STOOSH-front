@@ -5,8 +5,8 @@ import { Transaction } from '../../models/transaction.model';
 @Component({
   selector: 'app-transaction-row',
   imports: [CommonModule],
-  templateUrl: './transaction-row.html',
-  styleUrl: './transaction-row.css',
+  templateUrl: './transaction-row.component.html',
+  styleUrl: './transaction-row.component.css',
 })
 export class TransactionRow {
   @Input() item!: Transaction;

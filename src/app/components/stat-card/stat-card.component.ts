@@ -6,8 +6,8 @@ export type StatCardVariant = 'default' | 'success' | 'danger' | 'warning';
 @Component({
   selector: 'app-stat-card',
   imports: [CommonModule],
-  templateUrl: './stat-card.html',
-  styleUrl: './stat-card.css',
+  templateUrl: './stat-card.component.html',
+  styleUrl: './stat-card.component.css',
 })
 export class StatCard {
   @Input() label!: string;

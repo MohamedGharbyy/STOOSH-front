@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-auth',
   imports: [CommonModule],
-  templateUrl: './auth.html',
+  templateUrl: './auth.component.html',
 })
 export class Auth {
   authMode: 'login' | 'signup' | 'forgot' = 'login';

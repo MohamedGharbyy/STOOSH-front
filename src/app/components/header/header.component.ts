@@ -11,8 +11,8 @@ export interface HeaderAction {
 @Component({
   selector: 'app-header',
   imports: [CommonModule],
-  templateUrl: './header.html',
-  styleUrl: './header.css',
+  templateUrl: './header.component.html',
+  styleUrl: './header.component.css',
 })
 export class Header {
   @Input() title: string = 'Dashboard';

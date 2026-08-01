@@ -10,8 +10,8 @@ export interface NavItem {
 @Component({
   selector: 'app-sidebar',
   imports: [CommonModule],
-  templateUrl: './sidebar.html',
-  styleUrl: './sidebar.css',
+  templateUrl: './sidebar.component.html',
+  styleUrl: './sidebar.component.css',
 })
 export class Sidebar {
   @Input() collapsed: boolean = false;

@@ -1,17 +1,17 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { TransactionList } from '../../components/transaction-list/transaction-list';
+import { TransactionList } from '../../components/transaction-list/transaction-list.component';
 import { Transaction } from '../../models/transaction.model';
-import { Sidebar, NavItem } from '../../components/sidebar/sidebar';
-import { Header, HeaderAction } from '../../components/header/header';
-import { StatCard } from '../../components/stat-card/stat-card';
+import { Sidebar, NavItem } from '../../components/sidebar/sidebar.component';
+import { Header, HeaderAction } from '../../components/header/header.component';
+import { StatCard } from '../../components/stat-card/stat-card.component';
 import { TransactionService } from '../../services/transaction.service';
 
 @Component({
   selector: 'app-dashboard',
   imports: [CommonModule, TransactionList, Sidebar, Header, StatCard],
-  templateUrl: './dashboard.html',
+  templateUrl: './dashboard.component.html',
 })
 export class Dashboard {
   title = 'Dashboard';

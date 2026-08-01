@@ -2,9 +2,9 @@ import { Component, Output, EventEmitter, signal, computed } from '@angular/core
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { TransactionList } from '../../components/transaction-list/transaction-list';
-import { Sidebar, NavItem } from '../../components/sidebar/sidebar';
-import { Header, HeaderAction } from '../../components/header/header';
+import { TransactionList } from '../../components/transaction-list/transaction-list.component';
+import { Sidebar, NavItem } from '../../components/sidebar/sidebar.component';
+import { Header, HeaderAction } from '../../components/header/header.component';
 import { Transaction } from '../../models/transaction.model';
 import { TransactionService } from '../../services/transaction.service';
 
@@ -13,8 +13,8 @@ export type FilterType = 'all' | 'today' | 'lastWeek' | 'month';
 @Component({
   selector: 'app-transactions',
   imports: [CommonModule, FormsModule, TransactionList, Sidebar, Header],
-  templateUrl: './transactions.html',
-  styleUrl: './transactions.css',
+  templateUrl: './transactions.component.html',
+  styleUrl: './transactions.component.css',
 })
 export class Transactions {
   transactions: Transaction[] = [];

@@ -391,6 +391,11 @@ html, body {
 }
 
 /* --- Buttons & Utilities --- */
+button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
 .stoosh-btn {
   display: inline-flex;
   align-items: center;
@@ -400,11 +405,30 @@ html, body {
   border-radius: var(--stoosh-radius-md);
   font-weight: var(--stoosh-weight-semibold);
   font-size: var(--stoosh-text-sm);
+  line-height: 1.2;
   transition: all 0.2s var(--stoosh-ease-snappy);
   cursor: pointer;
   border: 1px solid transparent;
   user-select: none;
   font-family: var(--stoosh-font-display);
+  white-space: nowrap;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.stoosh-btn:focus-visible {
+  outline: none;
+  border-color: var(--stoosh-accent-burnt-orange);
+  box-shadow: 0 0 0 3px var(--stoosh-focus-ring);
+}
+
+.stoosh-btn i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1em;
+  line-height: 1;
 }
 
 .stoosh-btn-primary {
@@ -436,6 +460,11 @@ html, body {
   color: var(--stoosh-text-primary);
   background-color: rgba(240, 240, 239, 0.08);
   border-color: var(--stoosh-border-strong);
+  transform: translateY(-1px);
+}
+
+.stoosh-btn-secondary:active {
+  transform: translateY(0);
 }
 
 .stoosh-btn-ghost {
